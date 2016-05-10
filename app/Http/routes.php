@@ -15,7 +15,15 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/debug', function() {
+
+
+
+
+//Remove these routes:
+Route::get('/modelcreate', 'LocationController@getModelCreate');
+Route::get('/modelread', 'LocationController@getModelRead');
+
+Route::get('/debugdb', function() {
 
     echo '<pre>';
 
@@ -68,46 +76,25 @@ Route::post('/remove/{itemID, location}', function(){
     return 'remove an item from a location';
 });
 
-Route::get('/inventory', function(){
-    //return 'show list of inventory items';
-    return view('inventory.index');
-});
-
-Route::post('/inventory/add', function(){
-    return 'add an item';
-});
-
-Route::get('/inventory/edit/{itemID}', function(){
-    return 'select an item to edit';
-});
-
-Route::post('/inventory/edit/{itemID}', function(){
-    return 'submit an edited item';
-});
+//Routes for Item/Inventory Actions
+Route::get('/items', 'ItemController@getItems');
+Route::post('/item/add', 'ItemController@addItem');
+Route::get('/item/edit/{id?}', 'ItemController@getEditItem');
+Route::post('/item/edit', 'ItemController@postEditItem');
 
 Route::post('/inventory/remove/{itemID}', function(){
     return 'remove an item';
 });
 
-Route::get('/locations', function(){
-    //return 'show list of locations';
-    return view('location.index');
-});
+//Routes for Location Actions
+Route::get('/locations', 'LocationController@getLocations');
+Route::post('/location/add', 'LocationController@addLocation');
+Route::get('/location/edit/{id?}', 'LocationController@getEditLocation');
+Route::post('/location/edit', 'LocationController@postEditLocation');
 
-Route::post('/locations/add', function(){
-    return 'add a location';
-});
-
-Route::get('/locations/edit/{location}', function(){
-    return 'select a location to edit';
-});
-
-Route::post('/locations/edit/{location}', function(){
-    return 'submit an edited location';
-});
-
-Route::post('/locations/remove/{location}', function(){
+Route::post('/location/remove/{location}', function(){
     return 'remove a location';
 });
+
 
 });

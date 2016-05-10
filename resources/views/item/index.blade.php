@@ -20,15 +20,15 @@
   @endif
 </div>
 
-Location view
+Item view
 
-        <p>Below are your existing locations</p>
+        <p>Below are your existing items</p>
 
         <p class="returnResult">
 
-          @foreach($locations as $location)
-            {{ $location->location_name }}
-            <a href='/location/edit/{{ $location->id }}'>Edit</a>
+          @foreach($items as $item)
+            {{ $item->item_name }}
+            <a href='/item/edit/{{ $item->id }}'>Edit</a>
             <br>
           @endforeach
 
@@ -36,16 +36,22 @@ Location view
 <P>
 
         <div>
-          <form method="post" action="/location/add">
+          <form method="post" action="/item/add">
           <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
-          <label>Add a new location (20 char max):</label>
+          <label>Add a new item (20 char max):</label>
           <input
             type="text"
-            name="newLocation"
-            alt="Name of a new location"
+            name="newItem"
+            alt="Name of a new item"
           >
           <p>
+          <label>Describe the item (20 char max):</label>
+          <input
+            type="text"
+            name="newItemDescription"
+            alt="Describe the item"
+          >
 
            @if(count($errors) > 0)
             <ul>
@@ -55,7 +61,7 @@ Location view
             </ul>
             @endif
 
-          <input type="submit" class="submit" value="Add Location">
+          <input type="submit" class="submit" value="Add Item">
         </form>
         </div>
 

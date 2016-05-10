@@ -2,7 +2,8 @@
 
 
 @section('title')
-    Where did I put my stuff?!
+    Where did I put my stuff?!<br>
+    Edit Item Name
 @stop
 
 @section('head')
@@ -20,30 +21,19 @@
   @endif
 </div>
 
-Location view
-
-        <p>Below are your existing locations</p>
-
-        <p class="returnResult">
-
-          @foreach($locations as $location)
-            {{ $location->location_name }}
-            <a href='/location/edit/{{ $location->id }}'>Edit</a>
-            <br>
-          @endforeach
-
-        </p>
-<P>
+Edit item
 
         <div>
-          <form method="post" action="/location/add">
+          <form method="post" action="/item/edit">
           <input type="hidden" name="_token" value="{{ csrf_token() }}">
+          <input type="hidden" name='id' value='{{ $item->id }}'>
 
-          <label>Add a new location (20 char max):</label>
+          <label>Edit a item (20 char max):</label>
           <input
             type="text"
-            name="newLocation"
-            alt="Name of a new location"
+            name="item_name"
+            alt="Name of a new item"
+            value='{{ $item->item_name }}'
           >
           <p>
 
@@ -55,9 +45,10 @@ Location view
             </ul>
             @endif
 
-          <input type="submit" class="submit" value="Add Location">
+          <input type="submit" class="submit" value="Save Changes">
         </form>
         </div>
+
 
 
 @stop

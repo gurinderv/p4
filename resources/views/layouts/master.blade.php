@@ -21,6 +21,11 @@
 
 </head>
 <body>
+    <div>
+      @if(Session::get('message') != null)
+          {{ Session::get('message') }}
+      @endif
+    </div>
 
     <header>
 
@@ -33,6 +38,7 @@
 
     <section>
         {{-- Main page content will be yielded here --}}
+
         <p>
         @yield('content')
     </section>
