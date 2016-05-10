@@ -15,31 +15,26 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::group(['middleware' => ['web']], function () {
+Route::get('/byitem', function(){
+    return view('byitem.index');
+});
 
-    Route::get('/byitem', function(){
-        return view('byitem.index');
-    });
+//Routes for Item/Inventory Actions
+Route::get('/items', 'ItemController@getItems');
+Route::post('/item/add', 'ItemController@addItem');
+Route::get('/item/edit/{id?}', 'ItemController@getEditItem');
+Route::post('/item/edit', 'ItemController@postEditItem');
 
-    //Routes for Item/Inventory Actions
-    Route::get('/items', 'ItemController@getItems');
-    Route::post('/item/add', 'ItemController@addItem');
-    Route::get('/item/edit/{id?}', 'ItemController@getEditItem');
-    Route::post('/item/edit', 'ItemController@postEditItem');
+Route::post('/inventory/remove/{itemID}', function(){
+    return 'remove an item';
+});
 
-    Route::post('/inventory/remove/{itemID}', function(){
-        return 'remove an item';
-    });
+//Routes for Location Actions
+Route::get('/locations', 'LocationController@getLocations');
+Route::post('/location/add', 'LocationController@addLocation');
+Route::get('/location/edit/{id?}', 'LocationController@getEditLocation');
+Route::post('/location/edit', 'LocationController@postEditLocation');
 
-    //Routes for Location Actions
-    Route::get('/locations', 'LocationController@getLocations');
-    Route::post('/location/add', 'LocationController@addLocation');
-    Route::get('/location/edit/{id?}', 'LocationController@getEditLocation');
-    Route::post('/location/edit', 'LocationController@postEditLocation');
-
-    Route::post('/location/remove/{location}', function(){
-        return 'remove a location';
-    });
-
-
+Route::post('/location/remove/{location}', function(){
+    return 'remove a location';
 });

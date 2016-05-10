@@ -31,6 +31,7 @@ Item view
             <li>
               <h2>{{ $item->item_name }}</h2>
               <h3>Location: {{ $item->location->location_name }} </h3>
+              <p>Description: {{ $item->item_description }}</p>
               <br>
               <a href='/item/edit/{{ $item->id }}'>Edit</a>
               <br>
@@ -58,6 +59,13 @@ Item view
             name="newItemDescription"
             alt="Describe the item"
           >
+
+          <label for='location_id'>Where is the item located?2:</label>
+          <select name='location_id' id='location_id'>
+              @foreach($locations_for_dropdown as $location_id => $location_name)
+                  <option value='{{ $location_id }}'>{{ $location_name }}</option>
+              @endforeach
+          </select>
 
            @if(count($errors) > 0)
             <ul>

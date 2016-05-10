@@ -35,6 +35,22 @@ Edit item
             alt="Name of a new item"
             value='{{ $item->item_name }}'
           >
+
+          <label>Describe the item (20 char max):</label>
+          <input
+            type="text"
+            name="item_description"
+            alt="Describe the item"
+            value='{{ $item->item_description }}'
+          >
+
+          <label for='location_id'>Where is the item located?2:</label>
+          <select name='location_id' id='location_id'>
+              @foreach($locations_for_dropdown as $location_id => $location_name)
+                  <?php $selected = ($item->location_id == $location_id) ? 'SELECTED' : '' ?>
+                  <option value='{{ $location_id }}' {{ $selected }}>{{ $location_name }}</option>
+              @endforeach
+          </select>
           <p>
 
            @if(count($errors) > 0)
