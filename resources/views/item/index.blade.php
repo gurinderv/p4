@@ -25,16 +25,22 @@ Item view
         <p>Below are your existing items</p>
 
         <p class="returnResult">
-
+      <section>
+        <ul>
           @foreach($items as $item)
-            {{ $item->item_name }}
-            <a href='/item/edit/{{ $item->id }}'>Edit</a>
-            <br>
+            <li>
+              <h2>{{ $item->item_name }}</h2>
+              <h3>Location: {{ $item->location->location_name }} </h3>
+              <br>
+              <a href='/item/edit/{{ $item->id }}'>Edit</a>
+              <br>
+            </li>
           @endforeach
-
+        </ul>
+      </section>
         </p>
-<P>
 
+      <section>
         <div>
           <form method="post" action="/item/add">
           <input type="hidden" name="_token" value="{{ csrf_token() }}">
@@ -64,6 +70,6 @@ Item view
           <input type="submit" class="submit" value="Add Item">
         </form>
         </div>
-
+      </section>
 
 @stop
