@@ -20,7 +20,10 @@
   @endif
 </div>
 
-Item view
+    @if(sizeof($items) == 0)
+        You have no items in your list, you can add an item below to get started.
+    @else
+      Item view
 
         <p>Below are your existing items</p>
 
@@ -79,5 +82,5 @@ Item view
         </form>
         </div>
       </section>
-
+    @endif
 @stop

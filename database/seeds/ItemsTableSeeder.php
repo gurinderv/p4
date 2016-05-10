@@ -17,7 +17,8 @@ class ItemsTableSeeder extends Seeder
           'updated_at' => \Carbon\Carbon::now()->toDateTimestring(),
           'item_name' => 'Toothbrush',
           'item_description' => 'tool for cleaning teeth',
-          'location_id' => $location_id
+          'location_id' => $location_id,
+          'user_id' => 3
         ]);
 
         DB::table('items')->insert([
@@ -25,7 +26,8 @@ class ItemsTableSeeder extends Seeder
           'updated_at' => \Carbon\Carbon::now()->toDateTimestring(),
           'item_name' => 'Bucket',
           'item_description' => 'for holding water',
-          'location_id' => 2
+          'location_id' => 2,
+          'user_id' => 3
         ]);
     }
 }

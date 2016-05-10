@@ -36,6 +36,19 @@
         <h2>@yield('subheadline')</h2>
     </header>
 
+    <nav>
+      <ul>
+        @if(Auth::check())
+          <li><a href="/items">View/Manage Your Items</a></li>
+          <li><a href="/locations">View/Manage Your Locations</a></li>
+          <li><a href="/logout">Logout</a></li>
+        @else
+          <li><a href="/register">Register for FREE!</a></li>
+          <li><a href="/login">Login</a></li>
+        @endif
+
+      </ul>
+    </nav>
     <section>
         {{-- Main page content will be yielded here --}}
 
