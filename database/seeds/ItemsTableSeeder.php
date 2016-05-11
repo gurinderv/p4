@@ -11,13 +11,13 @@ class ItemsTableSeeder extends Seeder
      */
     public function run()
     {
-        $location_id = \App\Location::where('location_name','=','under stairs')->pluck('id')->first();
+        //$location_id = \App\Location::where('location_name','=','under stairs')->pluck('id')->first();
         DB::table('items')->insert([
           'created_at' => \Carbon\Carbon::now()->toDateTimestring(),
           'updated_at' => \Carbon\Carbon::now()->toDateTimestring(),
           'item_name' => 'Toothbrush',
           'item_description' => 'tool for cleaning teeth',
-          'location_id' => $location_id,
+          'location_id' => 1,
           'user_id' => 3
         ]);
 
@@ -27,7 +27,7 @@ class ItemsTableSeeder extends Seeder
           'item_name' => 'Bucket',
           'item_description' => 'for holding water',
           'location_id' => 2,
-          'user_id' => 3
+          'user_id' => 1
         ]);
     }
 }

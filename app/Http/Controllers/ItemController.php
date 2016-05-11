@@ -9,7 +9,7 @@ use App\Http\Requests;
 class ItemController extends Controller
 {
     public function getItems(){
-      $items = \App\Item::orderBy('item_name', 'desc')->get();
+      $items = \App\Item::orderBy('item_name', 'desc')->where('user_id','=',\Auth::id())->get();
 
       $locations_for_dropdown = \App\Location::locationsForDropdown();
 
@@ -28,6 +28,7 @@ class ItemController extends Controller
       $item->item_name = $request->newItem;
       $item->item_description = $request->newItemDescription;
       $item->location_id = $request->location_id;
+      $item->user_id = \Auth::id();
       $item->save();
 
       \Session::flash('message', 'Your item was added.');

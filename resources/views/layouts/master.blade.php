@@ -12,16 +12,9 @@
     {{-- Yield any page specific CSS files or anything else you might want in the <head> --}}
     @yield('head')
 
-    <style>
-    body
-        {
-
-        }
-    </style>
-
 </head>
 <body>
-    <div>
+    <div class="message">
       @if(Session::get('message') != null)
           {{ Session::get('message') }}
       @endif
@@ -32,22 +25,21 @@
 
         <h1>Where did I put my stuff inventory manager</h1>
 
-        {{-- Variable subheading for each page --}}
-        <h2>@yield('subheadline')</h2>
+        <nav>
+          <ul>
+            @if(Auth::check())
+              <li>@yield('navigation')</li>
+              <li><a href="/logout">Logout</a></li>
+            @else
+              <li><a href="/register">Register for FREE!</a></li>
+              <li><a href="/login">Login</a></li>
+            @endif
+
+          </ul>
+        </nav>
     </header>
 
-    <nav>
-      <ul>
-        @if(Auth::check())
-          <li><a href="/locations">View/Manage Your Locations</a></li>
-          <li><a href="/logout">Logout</a></li>
-        @else
-          <li><a href="/register">Register for FREE!</a></li>
-          <li><a href="/login">Login</a></li>
-        @endif
 
-      </ul>
-    </nav>
     <section>
         {{-- Main page content will be yielded here --}}
 
