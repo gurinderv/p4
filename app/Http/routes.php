@@ -22,10 +22,8 @@ Route::group(['middleware' => 'auth'], function(){
     Route::post('/item/add', 'ItemController@addItem');
     Route::get('/item/edit/{id?}', 'ItemController@getEditItem');
     Route::post('/item/edit', 'ItemController@postEditItem');
-
-    Route::post('/item/remove/{id?}', function(){
-        return 'remove an item';
-    });
+    Route::get('/item/confirm-delete/{id?}', 'ItemController@getConfirmDelete');
+    Route::get('/item/delete/{id?}', 'ItemController@getDoDelete');
 
     //Routes for Location Actions
     Route::get('/locations', 'LocationController@getLocations');

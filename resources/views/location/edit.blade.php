@@ -10,8 +10,8 @@
     <link href="/css/view.css" type='text/css' rel='stylesheet'>
 @stop
 
-@section('subheadline')
-
+@section('navigation')
+  <a href="/locations">Manage Locations</a>
 @stop
 
 @section('content')

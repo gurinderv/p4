@@ -21,6 +21,8 @@ class ItemController extends Controller
     public function addItem(Request $request){
       $this->validate($request, [
         'newItem' => 'required|max:20',
+        'newItemDescription' => 'required|max:20',
+        'location_id' => 'required|numeric'
       ]);
 
       #Add the new item
@@ -46,6 +48,12 @@ class ItemController extends Controller
     }
 
     public function postEditItem(Request $request){
+      $this->validate($request, [
+        'item_name' => 'required|max:20',
+        'item_description' => 'required|max:20',
+        'location_id' => 'required|numeric'
+      ]);
+
       $item = \App\Item::find($request->id);
       $item->item_name = $request->item_name;
       $item->item_description = $request->item_description;
@@ -53,6 +61,30 @@ class ItemController extends Controller
       $item->save();
 
       \Session::flash('message', 'Your item has been updated.');
+      return redirect('/items');
+    }
+    public function getConfirmDelete($id) {
+
+      $item = \App\Item::find($id);
+
+      return view('item.delete')->with('item', $item);
+}
+
+    public function getDoDelete($id) {
+
+      # Get the item to be deleted
+      $item = \App\Item::find($id);
+
+      if(is_null($item)) {
+          \Session::flash('message','Item not found.');
+          return redirect('\items');
+      }
+
+      # Then delete the item
+      $item->delete();
+
+      # Done
+      \Session::flash('message',$item->item_name.' was removed.');
       return redirect('/items');
     }
 

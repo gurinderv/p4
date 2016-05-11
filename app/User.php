@@ -27,4 +27,8 @@ class User extends Authenticatable
     public function items(){
         return $this->hasMany('\App\Item');
     }
+
+    public function locations(){
+        return $this->hasMany('\App\Location');
+    }
 }

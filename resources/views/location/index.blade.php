@@ -10,7 +10,7 @@
 @stop
 
 @section('navigation')
-
+  <a href="/items">Return to Items</a>
 @stop
 
 @section('content')

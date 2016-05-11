@@ -10,16 +10,11 @@
     <link href="/css/view.css" type='text/css' rel='stylesheet'>
 @stop
 
-@section('subheadline')
-
+@section('navigation')
+  <a href="/locations">Manage Locations</a>
 @stop
 
 @section('content')
-<div>
-  @if(Session::get('message') != null)
-      {{ Session::get('message') }}
-  @endif
-</div>
 
 Edit item
 

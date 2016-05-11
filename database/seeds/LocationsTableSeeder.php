@@ -12,15 +12,17 @@ class LocationsTableSeeder extends Seeder
     public function run()
     {
         DB::table('locations')->insert([
-       'created_at' => Carbon\Carbon::now()->toDateTimeString(),
-       'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
-       'location_name' => 'under stairs',
+           'created_at' => Carbon\Carbon::now()->toDateTimeString(),
+           'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
+           'location_name' => 'under stairs',
+           'user_id' => 3
         ]);
 
        DB::table('locations')->insert([
            'created_at' => Carbon\Carbon::now()->toDateTimeString(),
            'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
            'location_name' => 'kitchen pantry',
+           'user_id' => 1
         ]);
 
     }

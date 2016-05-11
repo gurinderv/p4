@@ -9,16 +9,11 @@
     <link href="/css/view.css" type='text/css' rel='stylesheet'>
 @stop
 
-@section('subheadline')
-
+@section('navigation')
+  <a href="/locations">Manage Locations</a>
 @stop
 
 @section('content')
-<div>
-  @if(Session::get('message') != null)
-      {{ Session::get('message') }}
-  @endif
-</div>
 
     @if(sizeof($items) == 0)
         You have no items in your list, you can add an item below to get started.
@@ -37,13 +32,14 @@
               <p>Description: {{ $item->item_description }}</p>
               <br>
               <a href='/item/edit/{{ $item->id }}'>Edit</a>
+              <a href='/item/confirm-delete/{{ $item->id}}'>Remove Item</a><br>
               <br>
             </li>
           @endforeach
         </ul>
       </section>
         </p>
-
+    @endif
       <section>
         <div>
           <form method="post" action="/item/add">
@@ -82,5 +78,5 @@
         </form>
         </div>
       </section>
-    @endif
+
 @stop

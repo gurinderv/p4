@@ -14,7 +14,7 @@ class Location extends Model
 
   public static function locationsForDropdown(){
     //Get all locations
-    $locations = \App\Location::orderBy('location_name', 'asc')->get();
+    $locations = \App\Location::where('user_id','=',\Auth::id())->orderBy('location_name', 'asc')->get();
 
     //Build Array for Location dropdown
     $locations_for_dropdown = [];
@@ -24,5 +24,8 @@ class Location extends Model
     return $locations_for_dropdown;
   }
 
+    public function user(){
+        return $this->belongsTo('\App\User');
+    }
 
 }
