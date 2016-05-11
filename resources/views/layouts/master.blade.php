@@ -39,7 +39,6 @@
     <nav>
       <ul>
         @if(Auth::check())
-          <li><a href="/items">View/Manage Your Items</a></li>
           <li><a href="/locations">View/Manage Your Locations</a></li>
           <li><a href="/logout">Logout</a></li>
         @else
