@@ -24,16 +24,17 @@ Route::group(['middleware' => 'auth'], function(){
     Route::post('/item/edit', 'ItemController@postEditItem');
     Route::get('/item/confirm-delete/{id?}', 'ItemController@getConfirmDelete');
     Route::get('/item/delete/{id?}', 'ItemController@getDoDelete');
+    Route::get('/item/edit_forLocationDelete/{item_id}/{location_id}', 'ItemController@getEditItem_forLocationDelete');
+    Route::get('/item/confirm-delete_forLocationDelete/{id?}', 'ItemController@getConfirmDelete_forLocationDelete');
+    Route::get('/item/delete_forLocationDelete/{id?}', 'ItemController@getDoDelete_forLocationDelete');
 
     //Routes for Location Actions
     Route::get('/locations', 'LocationController@getLocations');
     Route::post('/location/add', 'LocationController@addLocation');
     Route::get('/location/edit/{id?}', 'LocationController@getEditLocation');
     Route::post('/location/edit', 'LocationController@postEditLocation');
-
-    Route::post('/location/remove/{location}', function(){
-        return 'remove a location';
-    });
+    Route::get('/location/confirm-delete/{id?}', 'LocationController@getConfirmDelete');
+    Route::get('/location/delete/{id?}', 'LocationController@getDoDelete');
 });
 
 //Routes for authentication

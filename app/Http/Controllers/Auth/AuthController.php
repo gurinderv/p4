@@ -65,13 +65,29 @@ class AuthController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        $newUser = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
         ]);
+
+        \DB::table('locations')->insert([
+           'created_at' => \Carbon\Carbon::now()->toDateTimeString(),
+           'updated_at' => \Carbon\Carbon::now()->toDateTimeString(),
+           'location_name' => 'Unassigned Location',
+           'user_id' => $newUser->id
+         ]);
+
         \Session::flash('message', 'Account created!');
 
+        return $newUser;
+
+
+        // return User::create([
+        //     'name' => $data['name'],
+        //     'email' => $data['email'],
+        //     'password' => bcrypt($data['password']),
+        // ]);
     }
     /**
      * Log the user out of the application.

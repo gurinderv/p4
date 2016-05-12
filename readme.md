@@ -1,6 +1,7 @@
-# P4: Home Inventory Manager
+# P4: Where's my Stuff?
+## A home inventory manager
 
-Brief Description....
+This is a basic inventory application that allows the user to build an inventory list of items and correlate those items to where they may be located. The inventory list can be expanded and contracted as desired by the user. Locations are also customizable.
 
 ###Live URL:
 
@@ -11,8 +12,9 @@ Brief Description....
 
 
 ###Description and Details for the Teaching Team
+This application uses three basic tables: users, locations and items. The items are the
+
 
 ###Lorem Generator
  * uses  package
  * implements
-

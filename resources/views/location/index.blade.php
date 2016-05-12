@@ -21,7 +21,8 @@
                 {{ $location->location_name }}
               </td>
               <td>
-                <a href='/location/edit/{{ $location->id }}'>Edit</a>
+                <a href='/location/edit/{{ $location->id }}'>Edit</a><br>
+                <a href='/location/confirm-delete/{{ $location->id}}'>Remove</a>
               </td>
             <tr>
           @endforeach

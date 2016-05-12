@@ -14,7 +14,7 @@ class LocationsTableSeeder extends Seeder
         DB::table('locations')->insert([
            'created_at' => Carbon\Carbon::now()->toDateTimeString(),
            'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
-           'location_name' => 'Unassigned Location',
+           'location_name' => 'Garage Shelf Right',
            'user_id' => 1
         ]);
 
