@@ -9,7 +9,7 @@ This is a basic inventory application that allows the user to build an inventory
 
 ###Link to screencast demo of this project:
 
-
+<http://screencast.com/t/M3WYdyvxFwx7>
 
 ###Description and Details for the Teaching Team
 This application uses three basic tables: users, locations and items. The items are the central source of truth with users and locations as foreign keys. Below is a link to the planning document for this project. You may view the routes and db plan. There are two users pre-seeded into the application: Jill and Jamal, with location data pre-seeded as well. The project doesn't use any external packages, but it does have SkeletonCSS downloaded to the CSS folder to make the site mostly responsive.
