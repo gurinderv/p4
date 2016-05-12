@@ -14,15 +14,22 @@ class LocationsTableSeeder extends Seeder
         DB::table('locations')->insert([
            'created_at' => Carbon\Carbon::now()->toDateTimeString(),
            'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
-           'location_name' => 'under stairs',
-           'user_id' => 3
+           'location_name' => 'Unassigned Location',
+           'user_id' => 1
+        ]);
+
+        DB::table('locations')->insert([
+           'created_at' => Carbon\Carbon::now()->toDateTimeString(),
+           'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
+           'location_name' => 'Under Stairs Storage',
+           'user_id' => 2
         ]);
 
        DB::table('locations')->insert([
            'created_at' => Carbon\Carbon::now()->toDateTimeString(),
            'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
-           'location_name' => 'kitchen pantry',
-           'user_id' => 1
+           'location_name' => 'Kitchen Pantry',
+           'user_id' => 3
         ]);
 
     }
