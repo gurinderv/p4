@@ -73,17 +73,6 @@ class AuthController extends Controller
         \Session::flash('message', 'Account created!');
 
     }
-
-    public function postRegister(Request $request)
-    {
-        DB::table('locations')->insert([
-           'created_at' => Carbon\Carbon::now()->toDateTimeString(),
-           'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
-           'location_name' => 'Unassigned Location',
-           'user_id' => \Auth::id();
-        ]);
-        return $this->register($request);
-    }
     /**
      * Log the user out of the application.
      *
