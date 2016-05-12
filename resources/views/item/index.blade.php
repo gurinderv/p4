@@ -47,21 +47,21 @@
           <form method="post" action="/item/add">
           <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
-          <label>Add a new item (20 char max):</label>
+          <label>Add a new item (20 char max)*:</label>
           <input
             type="text"
             name="newItem"
             alt="Name of a new item"
           >
           <p>
-          <label>Describe the item (20 char max):</label>
+          <label>Describe the item (50 char max)*:</label>
           <input
             type="text"
             name="newItemDescription"
             alt="Describe the item"
           >
 
-          <label for='location_id'>Where is the item located?2:</label>
+          <label for='location_id'>Where is the item located?:</label>
           <select name='location_id' id='location_id'>
               @foreach($locations_for_dropdown as $location_id => $location_name)
                   <option value='{{ $location_id }}'>{{ $location_name }}</option>

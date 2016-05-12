@@ -2,7 +2,7 @@
 
 
 @section('head')
-    <link href="/css/view.css" type='text/css' rel='stylesheet'>
+
 @stop
 
 @section('navigation')

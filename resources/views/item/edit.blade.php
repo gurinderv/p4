@@ -3,7 +3,7 @@
 
 
 @section('head')
-    <link href="/css/view.css" type='text/css' rel='stylesheet'>
+
 @stop
 
 @section('navigation')
@@ -12,7 +12,6 @@
 
 @section('content')
 
-
         <div>
           <fieldset class="fieldSet">
             <legend>Edit Item Details</legend>
@@ -20,7 +19,7 @@
           <input type="hidden" name="_token" value="{{ csrf_token() }}">
           <input type="hidden" name='id' value='{{ $item->id }}'>
 
-          <label>Item Name (20 char max):</label>
+          <label>Item Name (20 char max)*:</label>
           <input
             type="text"
             name="item_name"
@@ -28,7 +27,7 @@
             value='{{ $item->item_name }}'
           >
 
-          <label>Item Description (20 char max):</label>
+          <label>Item Description (20 char max)*:</label>
           <input
             type="text"
             name="item_description"
@@ -57,7 +56,5 @@
         </form>
       </fieldset>
         </div>
-
-
 
 @stop

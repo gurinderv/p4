@@ -21,7 +21,7 @@ class ItemController extends Controller
     public function addItem(Request $request){
       $this->validate($request, [
         'newItem' => 'required|max:20',
-        'newItemDescription' => 'required|max:20',
+        'newItemDescription' => 'required|max:50',
         'location_id' => 'required|numeric'
       ]);
 
@@ -50,7 +50,7 @@ class ItemController extends Controller
     public function postEditItem(Request $request){
       $this->validate($request, [
         'item_name' => 'required|max:20',
-        'item_description' => 'required|max:20',
+        'item_description' => 'required|max:50',
         'location_id' => 'required|numeric'
       ]);
 
