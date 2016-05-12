@@ -8,7 +8,7 @@
 @stop
 
 @section('content')
-    <h1>Remove a location</h1>
+    <p class="subheading">Remove a location</p>
     <p><b> PLEASE READ!</b> Deleting a location will remove all items associated with that location. Please change the location of any item you wish to maintain BEFORE deleting it's location.</p>
 
     @if($items->count() > 0)
@@ -24,7 +24,6 @@
               </td>
               <td>
                 <a href='/item/edit/{{ $item->id }}'>Edit</a></br>
-                <!-- <a href='/item/confirm-delete_forLocationDelete/{{ $item->id}}'>Remove Item</a> -->
               </td>
           </tr>
         @endforeach

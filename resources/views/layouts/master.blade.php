@@ -24,7 +24,7 @@
     <header>
       <div class="row">
         <div class="nine columns">
-          <h1>Where's my stuff? Logo</h1>
+          <img src="/images/wms_logo.gif">
         </div>
         <nav class="three columns">
           <ul class="nav">

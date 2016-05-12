@@ -1,7 +1,6 @@
 @extends('layouts.master')
 
 
-
 @section('head')
     <link href="/css/view.css" type='text/css' rel='stylesheet'>
 @stop
@@ -11,13 +10,11 @@
 @stop
 
 @section('content')
-<div>
-  @if(Session::get('message') != null)
-      {{ Session::get('message') }}
-  @endif
-</div>
-
-Edit Location
+        <div>
+          @if(Session::get('message') != null)
+              {{ Session::get('message') }}
+          @endif
+        </div>
 
         <div>
           <form method="post" action="/location/edit">

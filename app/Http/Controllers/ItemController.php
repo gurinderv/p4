@@ -88,30 +88,4 @@ class ItemController extends Controller
       return redirect('/items');
     }
 
-    public function getEditItem_forLocationDelete($item_id, $location_id) {
-      $item = \App\Item::find($item_id);
-      $locations_for_dropdown = \App\Location::locationsForDropdown();
-
-      redirect('/location/confirm-delete/$location_id');
-      //return view('location.delete')->with('location', $location_id)->with('items',$items);
-      // return view('location.delete')
-      //     ->with('locations_for_dropdown', $locations_for_dropdown);
-    }
-
-    public function postEditItem_forLocationDelete(Request $request){
-      $this->validate($request, [
-        'item_name' => 'required|max:20',
-        'item_description' => 'required|max:20',
-        'location_id' => 'required|numeric'
-      ]);
-
-      $item = \App\Item::find($request->id);
-      $item->item_name = $request->item_name;
-      $item->item_description = $request->item_description;
-      $item->location_id = $request->location_id;
-      $item->save();
-
-      \Session::flash('message', 'Your item has been updated.');
-      return redirect('/items');
-    }
 }
