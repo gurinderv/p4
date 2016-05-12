@@ -1,9 +1,6 @@
 @extends('layouts.master')
 
 
-@section('title')
-    Where did I put my stuff?!
-@stop
 
 @section('head')
     <link href="/css/view.css" type='text/css' rel='stylesheet'>
@@ -15,26 +12,29 @@
 
 @section('content')
 
-Location view
+        <p class="subheading">Below are your existing locations.</p>
 
-        <p>Below are your existing locations</p>
-
-        <p class="returnResult">
-
+        <table>
           @foreach($locations as $location)
-            {{ $location->location_name }}
-            <a href='/location/edit/{{ $location->id }}'>Edit</a>
-            <br>
+            <tr>
+              <td>
+                {{ $location->location_name }}
+              </td>
+              <td>
+                <a href='/location/edit/{{ $location->id }}'>Edit</a>
+              </td>
+            <tr>
           @endforeach
-
-        </p>
+        </table>
 <P>
 
         <div>
+          <fieldset class="fieldSet">
+            <legend>Add a New Location</legend>
           <form method="post" action="/location/add">
           <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
-          <label>Add a new location (20 char max):</label>
+          <label>Location Name (20 char max):</label>
           <input
             type="text"
             name="newLocation"
@@ -45,13 +45,14 @@ Location view
            @if(count($errors) > 0)
             <ul>
                 @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
+                    <li class="errorMessage">{{ $error }}</li>
                 @endforeach
             </ul>
             @endif
 
           <input type="submit" class="submit" value="Add Location">
         </form>
+      </fieldset>
         </div>
 
 

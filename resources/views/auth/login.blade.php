@@ -4,16 +4,16 @@
 
     <p>Don't have an account? <a href='/register'>Register here...</a></p>
 
-    <h1>Login</h1>
 
     @if(count($errors) > 0)
-        <ul class='errors'>
+        <ul class='errorMessage'>
             @foreach ($errors->all() as $error)
-                <li><span class='fa fa-exclamation-circle'></span> {{ $error }}</li>
+                <li> ! {{ $error }}</li>
             @endforeach
         </ul>
     @endif
-
+    <fieldset class="fieldSet">
+      <legend>Login</legend>
     <form method='POST' action='/login'>
 
         {!! csrf_field() !!}
@@ -36,4 +36,5 @@
         <button type='submit' class='btn btn-primary'>Login</button>
 
     </form>
+  </fieldset>
 @stop

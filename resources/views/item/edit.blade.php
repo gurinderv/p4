@@ -1,10 +1,6 @@
 @extends('layouts.master')
 
 
-@section('title')
-    Where did I put my stuff?!<br>
-    Edit Item Name
-@stop
 
 @section('head')
     <link href="/css/view.css" type='text/css' rel='stylesheet'>
@@ -16,14 +12,15 @@
 
 @section('content')
 
-Edit item
 
         <div>
+          <fieldset class="fieldSet">
+            <legend>Edit Item Details</legend>
           <form method="post" action="/item/edit">
           <input type="hidden" name="_token" value="{{ csrf_token() }}">
           <input type="hidden" name='id' value='{{ $item->id }}'>
 
-          <label>Edit a item (20 char max):</label>
+          <label>Item Name (20 char max):</label>
           <input
             type="text"
             name="item_name"
@@ -31,7 +28,7 @@ Edit item
             value='{{ $item->item_name }}'
           >
 
-          <label>Describe the item (20 char max):</label>
+          <label>Item Description (20 char max):</label>
           <input
             type="text"
             name="item_description"
@@ -39,7 +36,7 @@ Edit item
             value='{{ $item->item_description }}'
           >
 
-          <label for='location_id'>Where is the item located?2:</label>
+          <label for='location_id'>Item Location:</label>
           <select name='location_id' id='location_id'>
               @foreach($locations_for_dropdown as $location_id => $location_name)
                   <?php $selected = ($item->location_id == $location_id) ? 'SELECTED' : '' ?>
@@ -51,13 +48,14 @@ Edit item
            @if(count($errors) > 0)
             <ul>
                 @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
+                    <li class="errorMessage">{{ $error }}</li>
                 @endforeach
             </ul>
             @endif
 
           <input type="submit" class="submit" value="Save Changes">
         </form>
+      </fieldset>
         </div>
 
 

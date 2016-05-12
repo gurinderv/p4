@@ -1,10 +1,45 @@
-html {
-  font-size: 1em;
-  font-family: sans-serif;
+.subheading {
+  font-size: 1.5em;
+  font-weight: bold;
 }
 .message{
   font-weight: bold;
   font-size: 0.9em;
   color: #001a66;
   text-align: center;
+  background-color: #D5EEFF;
 }
+
+.errorMessage{
+  font-weight: bold;
+  font-size: 1em;
+  color: red;
+}
+
+.fieldSet{
+  border-width: thin;
+  border-style: solid;
+  border-color: black;
+  border-radius: 0.7em;
+  padding: 0.9em;
+}
+
+a {
+  text-decoration: none;
+}
+
+.itemName{
+  font-size: larger;
+  font-weight: bold;
+  line-height: 0.6em;
+}
+.itemDescription{
+  line-height: 0.6em;
+}
+.itemLocation{
+  line-height: 0.7em;
+}
+
+ul li {display: block; list-style: none; padding: 0;}
+nav ul li a {text-decoration: none; padding: 0.5em 0 0.5em 1em; font-weight: bold;}
+nav ul li { margin-bottom: 0; margin-top: 0; padding-top: 0; padding-bottom: 0;}

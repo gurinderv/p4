@@ -1,12 +1,7 @@
 @extends('layouts.master')
 
 
-@section('title')
-    Where did I put my stuff?!
-@stop
-
 @section('head')
-    <link href="/css/view.css" type='text/css' rel='stylesheet'>
 @stop
 
 @section('navigation')
@@ -16,32 +11,39 @@
 @section('content')
 
     @if(sizeof($items) == 0)
-        You have no items in your list, you can add an item below to get started.
+        <p class="subheading">You have no items in your list, you can add an item below to get started.</p>
     @else
-      Item view
-
-        <p>Below are your existing items</p>
+        <p class="subheading">Below are your existing items</p>
 
         <p class="returnResult">
       <section>
-        <ul>
-          @foreach($items as $item)
-            <li>
-              <h2>{{ $item->item_name }}</h2>
-              <h3>Location: {{ $item->location->location_name }} </h3>
-              <p>Description: {{ $item->item_description }}</p>
-              <br>
-              <a href='/item/edit/{{ $item->id }}'>Edit</a>
-              <a href='/item/confirm-delete/{{ $item->id}}'>Remove Item</a><br>
-              <br>
-            </li>
-          @endforeach
-        </ul>
+
+        <table>
+        @foreach($items as $item)
+          <tr>
+              <td>
+                <ul>
+                <li class="itemName">{{ $item->item_name }}</li>
+                <li class="itemDescription">Description: {{ $item->item_description }}</li>
+                <li class="itemLocation">Location: {{ $item->location->location_name }} </li>
+              </ul>
+              </td>
+              <td>
+                <a href='/item/edit/{{ $item->id }}'>Edit</a></br>
+                <a href='/item/confirm-delete/{{ $item->id}}'>Remove Item</a>
+              </td>
+          </tr>
+        @endforeach
+      </table>
       </section>
         </p>
     @endif
+@stop
+@section('sideContent')
       <section>
         <div>
+          <fieldset class="fieldSet">
+            <legend class="legendTitle">Add a New Item</legend>
           <form method="post" action="/item/add">
           <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
@@ -69,14 +71,15 @@
            @if(count($errors) > 0)
             <ul>
                 @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
+                    <li class="errorMessage">{{ $error }}</li>
                 @endforeach
             </ul>
             @endif
 
           <input type="submit" class="submit" value="Add Item">
+        </fieldset>
         </form>
+
         </div>
       </section>
-
 @stop

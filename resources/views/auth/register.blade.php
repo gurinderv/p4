@@ -4,16 +4,18 @@
 
     <p>Already have an account? <a href='/login'>Login here...</a></p>
 
-    <h1>Register</h1>
+    <p class="subheading">Register</p>
+    Registration is simple. Simply input your name, email and a password to get started. All fields are required.<p>
 
     @if(count($errors) > 0)
-        <ul class='errors'>
+        <ul class='errorMessage'>
             @foreach ($errors->all() as $error)
-                <li><span class='fa fa-exclamation-circle'></span> {{ $error }}</li>
+                <li> ! {{ $error }}</li>
             @endforeach
         </ul>
     @endif
-
+    <fieldset class="fieldSet">
+      <legend>Register</legend>
     <form method='POST' action='/register'>
         {!! csrf_field() !!}
 
@@ -37,8 +39,8 @@
             <input type='password' name='password_confirmation' id='password_confirmation'>
         </div>
 
-        <button type='submit' class='btn btn-primary'>Register</button>
+        <button type='submit'>Register</button>
 
     </form>
-
+  </fieldset>
 @stop

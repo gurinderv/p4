@@ -2,11 +2,11 @@
 <html>
 <head>
     <title>
-        {{-- Yield the title if it exists, otherwise default to "Hacker's Best Friend" --}}
-        @yield('title', "Where did I put my stuff?!")
+        Where's My Stuff? Home item tracker
     </title>
 
     <meta charset='utf-8'>
+    <link href="/css/skeleton.css" type="text/css" rel="stylesheet">
     <link href="/css/view.css" type='text/css' rel='stylesheet'>
 
     {{-- Yield any page specific CSS files or anything else you might want in the <head> --}}
@@ -14,50 +14,58 @@
 
 </head>
 <body>
-    <div class="message">
+
       @if(Session::get('message') != null)
-          {{ Session::get('message') }}
+          <div class="message">
+              {{ Session::get('message') }}
+          </div>
       @endif
-    </div>
 
     <header>
-
-
-        <h1>Where did I put my stuff inventory manager</h1>
-
-        <nav>
-          <ul>
+      <div class="row">
+        <div class="nine columns">
+          <h1>Where's my stuff? Logo</h1>
+        </div>
+        <nav class="three columns">
+          <ul class="nav">
             @if(Auth::check())
-              <li>@yield('navigation')</li>
               <li><a href="/logout">Logout</a></li>
             @else
               <li><a href="/register">Register for FREE!</a></li>
               <li><a href="/login">Login</a></li>
             @endif
-
           </ul>
         </nav>
+      </div>
     </header>
 
+    <div class="row">
+        <aside class="nine columns">
+            @yield('content')
+        </aside>
 
-    <section>
-        {{-- Main page content will be yielded here --}}
+        <aside class="three columns">
+            <article>
+              @yield('sideContent')
+            </article>
+            <article>
+              <ul class="nav">
+                @if(Auth::check())
+                  <li>@yield('navigation')</li>
+                @endif
+              </ul>
+            </article>
+        </aside>
+    </div>
 
-        <p>
-        @yield('content')
-    </section>
-
-    <footer>
-        &copy; {{ date('Y') }} Gurinder Virdi  |  Note: This site is for entertainment purposes only. Your privacy is not protected on this site.
-    </footer>
-
+    <div class="row">
+        <footer class="twelve columns">
+            &copy; {{ date('Y') }} Gurinder Virdi  |  Note: This site is for entertainment purposes only. Your privacy is not protected on this site.
+        </footer>
+    </div>
 
     {{-- Yield any page specific JS files or anything else you might want at the end of the body --}}
     @yield('body')
-
-
-   {{-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>  --}}
-
-
-</body>
+        {{-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>  --}}
+  </body>
 </html>

@@ -1,10 +1,6 @@
 @extends('layouts.master')
 
 
-@section('title')
-    Where did I put my stuff?!<br>
-    Edit Location Name
-@stop
 
 @section('head')
     <link href="/css/view.css" type='text/css' rel='stylesheet'>
